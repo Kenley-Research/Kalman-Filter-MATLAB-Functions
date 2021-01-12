@@ -12,36 +12,38 @@ The figure below breaks down this process into six stages that first updates the
 
 ![](README/StepTree.jpg)
 
-For Stage 1, the initial state of the system and measurement model are represented as an influence diagram where X(0) is the state variable at time step 0 with mean μ_0 and covariance P_0, H(0) is the measurement matrix, V(0) is the measurement noise with mean 0 and covariance R_0. Z(0) is the (conditional) measurement value, given that X(0) and V(0) are known, with conditional mean H(0)μ_0 and conditional covariance 0, which implies that the (conditional) measurement value is deterministic.
-The initial state of the system and state propagation model are represented as an influence diagram where X(0) is the state variable at time step 0 with mean μ_0 and covariance P_0, Φ(0) is the state transition matrix, Γ(0) is the process noise matrix, W(0) is the process noise with mean 0 and covariance Q_0. X(1) is the (conditional) state variable at time step 1, given that X(0) and W(0) are known, with conditional mean Φ(0)μ_0 and conditional covariance 0, which implies that the (conditional) state variable at time step 1 is deterministic.
+
 
 ## Stage 1
 ![](README/Step1.jpg)
 
-For Stage 2, the measurement noise is accounted for by removing V(0) into the measurement value, Z(0). This is equivalent to marginalizing out the measurement noise.
+For Stage 1, the initial state of the system and measurement model are represented as an influence diagram where X(0) is the state variable at time step 0 with mean μ_0 and covariance P_0, H(0) is the measurement matrix, V(0) is the measurement noise with mean 0 and covariance R_0. Z(0) is the (conditional) measurement value, given that X(0) and V(0) are known, with conditional mean H(0)μ_0 and conditional covariance 0, which implies that the (conditional) measurement value is deterministic.
+The initial state of the system and state propagation model are represented as an influence diagram where X(0) is the state variable at time step 0 with mean μ_0 and covariance P_0, Φ(0) is the state transition matrix, Γ(0) is the process noise matrix, W(0) is the process noise with mean 0 and covariance Q_0. X(1) is the (conditional) state variable at time step 1, given that X(0) and W(0) are known, with conditional mean Φ(0)μ_0 and conditional covariance 0, which implies that the (conditional) state variable at time step 1 is deterministic.
 
 ## Stage 2
 ![](README/Step2.jpg)
 
-For Stage 3, the Kalman gain K(0) is calculated by reversing the arc between Z(0) and X(0), which is equivalent to applying Bayes' rule.
+For Stage 2, the measurement noise is accounted for by removing V(0) into the measurement value, Z(0). This is equivalent to marginalizing out the measurement noise.
 
 ## Stage 3
 ![](README/Step3.jpg)
 
-For Stage 4, the measurement value Z(0) is instantiated to update the estimate of X(0).
+For Stage 3, the Kalman gain K(0) is calculated by reversing the arc between Z(0) and X(0), which is equivalent to applying Bayes' rule.
 
 ## Stage 4
 ![](README/Step4.jpg)
 
-For Stage 5, the state vector X(0) is removed into X(1), which is the propagation of X(0) the state at time step 0 to the (conditional) state X(1) at time step 1, given that the process noise W(0) is known. This is equivalent to marginalizing out the state at time step 0.
+For Stage 4, the measurement value Z(0) is instantiated to update the estimate of X(0).
 
 ## Stage 5
 ![](README/Step5.jpg)
 
-For Stage 6, the process noise is accounted for by removing W(0) into the state at time step 1, X(1). This is equivalent to marginalizing out the process noise.
+For Stage 5, the state vector X(0) is removed into X(1), which is the propagation of X(0) the state at time step 0 to the (conditional) state X(1) at time step 1, given that the process noise W(0) is known. This is equivalent to marginalizing out the state at time step 0.
 
 ## Stage 6
 ![](README/Step6.jpg)
+
+For Stage 6, the process noise is accounted for by removing W(0) into the state at time step 1, X(1). This is equivalent to marginalizing out the process noise.
 
 # Program Overview
 There are 10 MATLAB functions included in the System Function folder of this repository. The three main functions are KFupdate, IDcorrect and IDpredict; these are used to call the other functions and perform Kalman filtering. The hierarchical relationship between the three main functions and the other functions can be seen in the figure below where the numerical identifier for each function corresponds to a table in the Influence Diagram Algorithm Descriptions file from this repository. 
