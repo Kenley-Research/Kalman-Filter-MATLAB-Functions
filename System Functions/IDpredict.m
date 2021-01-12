@@ -2,14 +2,15 @@ function [xpred Ppred] = IDpredict(filter)
 %% IDpredict
 % Object orientated programming
 %% Inputs
-% *filter -
-% *zmeas -
-% *zcov -
+% *filter - A trackingKF object that contains the State, StateCovariance
+% MeasurementModel, StateTransitionModel and ProcessNoise variables.
 %% Outputs
-% *xpred -
-% *Ppred -
+% *xpred - The predicted state
+% *Ppred - The predicted state estimation error covariance
 %%Description
-%
+% This function is modeled after the predict function of the MATLAB sensor
+% fusion tracking toolbox. It accepts a trackingKF oject as input and
+% performs the Time Update, or prediction, portion of the Kalman Filter.
 %%Author
 % C. Robert Kenley, PhD
 % kenley@purdue.edu
