@@ -5,7 +5,8 @@ function [u B V] = Evidence(u, B, V, X1, n0, n1, n2, du) % Table 3 algorithm
 % *u - A matrix with values including the mean of the state X(k) at discrete
 % time k and the product of this mean and measurement matrix at discrete 
 % time k that maps the state X(k)
-% *B - 
+% *B - Matrix composed of covariance matrix of state X(k) and the measurement
+% matrix at discrete time k.
 % *V - A vector combining conditional% variances with entries that are
 % non-negative (including inf) and the measurement noise values.
 % *X1 - Vector of n1 values with evidence in multivariate Gaussian with
@@ -26,7 +27,8 @@ function [u B V] = Evidence(u, B, V, X1, n0, n1, n2, du) % Table 3 algorithm
 % *V - An n x 1 vector with entries that are non-negative (including
 % inf) with the observed value set to 0.
 %%Description
-%
+% This function simulates the process of instantiation to update the
+% estimated value with the measurement matrix.
 %%Author
 % C. Robert Kenley, PhD
 % kenley@purdue.edu
