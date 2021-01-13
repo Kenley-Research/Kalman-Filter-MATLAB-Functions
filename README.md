@@ -1,4 +1,4 @@
-# kalman-influence-diagrams-matlab
+# Kalman-Filter-MATLAB-Functions
 # Influence Diagram Implementation of Discrete-Time Filtering
 This program is based on using normal influence diagrams as described in Kenley's doctoral dissertation (Kenley, Chapter 2) to perform optimal filtering and prediction for linear multistage processes according to the process model from Bryson and Ho’s book. (Bryson and Ho, 360)  The context and purpose for this application is summarized by Bryson and Ho:
 
