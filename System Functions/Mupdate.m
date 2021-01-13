@@ -27,7 +27,9 @@ function [u V B] = Mupdate(k, Z, u, B_or_sigma, V, R, H)
 % *B - the n x n matrix of Gaussian influence diagram arc coefficients of
 % state X(k+1) at discrete time k=1, which is strictly upper triangular.
 %%Description
-% 
+% This function focuses on the correction portion of the Kalman filter. It
+% takes the current state and covariance values as inputs and updates
+% them with the measurement value to proceed to the next time step.
 %%Author
 % C. Robert Kenley, PhD
 % kenley@purdue.edu
